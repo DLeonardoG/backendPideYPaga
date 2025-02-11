@@ -13,6 +13,7 @@ import com.campus.exam.orderstatus.domain.OrderStatusRepository;
 import com.campus.exam.user.domain.User;
 import com.campus.exam.user.domain.UserRepository;
 import com.campus.exam.user.infrastructure.JpaUserRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -53,6 +54,17 @@ public Optional<OrderDTO> findById(Long id) {
 //    public List<OrderDTO> findOrderByUserId(Long userId) {
 //        return orderRepository.findByUserId(userId).stream().map(this::convertToDTO).collect(Collectors.toList());
 //    }
+    
+    
+    @Transactional
+    public OrderDTO updateDescription(Long id, String description) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("order no encontrada para id: " + id));
+        order.setOrderStatus(description);
+        Order updatedOrder = orderRepository.save(order);
+        return convertToDTO(updatedOrder);
+    }
+
 
     private OrderDTO convertToDTO(Order order) {
 
