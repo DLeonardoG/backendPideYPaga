@@ -23,7 +23,7 @@ public class User {
     private boolean admin;
     
     
-    @OneToMany(mappedBy = "orderUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "userO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 
     public User(Long id, String name, String email, String password) {

@@ -12,9 +12,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "ordenes")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +28,14 @@ public class Order {
     
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private User orderUser;
+    private User userO;
 
-    public Order(Long id, LocalDateTime dated, int total, String orderStatus, User orderUser) {
+    public Order(Long id, LocalDateTime dated, int total, String orderStatus, User userO) {
         this.id = id;
         this.dated = dated;
         this.total = total;
         this.orderStatus = orderStatus;
-        this.orderUser = orderUser;
+        this.userO = userO;
     }
 
     public Order() {
@@ -64,11 +66,11 @@ public class Order {
     }
 
     public User getOrderUser() {
-        return orderUser;
+        return userO;
     }
 
-    public void setOrderUser(User orderUser) {
-        this.orderUser = orderUser;
+    public void setOrderUser(User userO) {
+        this.userO = userO;
     }
 
     public LocalDateTime getDated() {
