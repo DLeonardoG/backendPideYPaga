@@ -1,10 +1,14 @@
 package com.campus.exam.user.domain;
 
+import com.campus.exam.order.domain.Order;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -17,6 +21,10 @@ public class User {
     private String email;
     private String password;
     private boolean admin;
+    
+    
+    @OneToMany(mappedBy = "orderUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
 
     public User(Long id, String name, String email, String password) {
         this.id = id;
@@ -39,6 +47,16 @@ public class User {
 
     public User() {
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+    
+    
 
     public Long getId() {
         return id;

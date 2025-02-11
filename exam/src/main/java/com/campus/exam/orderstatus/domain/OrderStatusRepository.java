@@ -14,5 +14,5 @@ public interface OrderStatusRepository {
 
     void deleteById(Long id);
 
-    Optional<OrderStatus> findByName (String type);
+    OrderStatus findByName (String name);
 }
