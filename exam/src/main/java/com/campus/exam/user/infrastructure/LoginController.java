@@ -40,6 +40,8 @@ public class LoginController {
             responseDTO.setId(user.getId());
             responseDTO.setName(user.getName());
             responseDTO.setEmail(user.getEmail());
+            responseDTO.setAdmin(user.getAdmin());
+            
 
             return ResponseEntity.ok(responseDTO);
         }

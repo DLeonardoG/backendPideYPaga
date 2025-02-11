@@ -5,7 +5,7 @@ public class LoginResponseDTO {
     private Long id;
     private String name;
     private String email;
-    private boolean admin;
+    private String admin;
 
     public String getToken() {
         return token;
@@ -39,14 +39,14 @@ public class LoginResponseDTO {
         this.email = email;
     }
 
-    public boolean isAdmin() {
+    public String getAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(String admin) {
         this.admin = admin;
     }
-
+    
     
     
 }

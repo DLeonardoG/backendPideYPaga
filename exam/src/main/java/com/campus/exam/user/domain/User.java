@@ -20,7 +20,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private boolean admin;
+    private String admin;
     
 
     
@@ -34,16 +34,18 @@ public class User {
         this.email = email;
         this.password = password;
     }
-    
-    
 
-    public User(Long id, String name, String email, String password, boolean admin) {
+    public User(Long id, String name, String email, String password, String admin, List<Order> orders) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.admin = admin;
+        this.orders = orders;
     }
+    
+    
+
 
 
 
@@ -92,13 +94,15 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
+    public String getAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(String admin) {
         this.admin = admin;
     }
+
+
     
     
     

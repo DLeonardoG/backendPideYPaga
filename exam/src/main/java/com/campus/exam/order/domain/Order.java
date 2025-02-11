@@ -35,6 +35,10 @@ public class Order {
     @JoinColumn(name = "usuario_id")
     private User userO;
     
+     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User usuarioOrden;
+    
           @OneToMany(mappedBy = "orderP", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products;
 

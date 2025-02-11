@@ -5,7 +5,7 @@ public class RegisterDTO {
     private String name;
     private String email;
     private String password;
-    private boolean admin;
+    private String admin;
 
     public String getName() {
         return name;
@@ -31,13 +31,14 @@ public class RegisterDTO {
         this.password = password;
     }
 
-    public boolean isAdmin() {
+    public String getAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(String admin) {
         this.admin = admin;
     }
+
     
     
 
