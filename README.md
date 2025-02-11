@@ -22,7 +22,7 @@
 - **Axios** - API consumption
 - **Tailwind CSS** - Modern and responsive styling
 - **https://github.com/LauCarrillo16/Front-PideYPaga**
-- **HASH: efc87eb716446f186aad30ba4113de5bd2566f99**
+- **HASH: d737570017fc31d861b0ecd35252eca1c693a11a**
 
 ## Project Architecture
 
