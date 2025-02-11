@@ -28,7 +28,7 @@ public class UserServiceImpl {
         User.setName(registerDTO.getName());
         User.setEmail(registerDTO.getEmail());
         User.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
-
+        User.setAdmin(registerDTO.isAdmin());
         return userRepository.save(User);
     }
 

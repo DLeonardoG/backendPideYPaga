@@ -51,9 +51,11 @@ public Optional<OrderDTO> findById(Long id) {
         orderRepository.deleteById(id);
     }
 
-//    public List<OrderDTO> findOrderByUserId(Long userId) {
-//        return orderRepository.findByUserId(userId).stream().map(this::convertToDTO).collect(Collectors.toList());
-//    }
+    public List<OrderDTO> findOrdersByUserId(Long userId) {
+        return orderRepository.findOrdersByUserId(userId).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
     
     
     @Transactional
