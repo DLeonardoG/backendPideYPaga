@@ -22,21 +22,17 @@ public class Order {
     private LocalDateTime dated;
     private int total;
     
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private OrderStatus ordersStatus;
+    private String orderStatus;
     
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private User orderUser;
-    
-    
 
-    public Order(Long id, LocalDateTime dated, int total, OrderStatus ordersStatus, User orderUser) {
+    public Order(Long id, LocalDateTime dated, int total, String orderStatus, User orderUser) {
         this.id = id;
         this.dated = dated;
         this.total = total;
-        this.ordersStatus = ordersStatus;
+        this.orderStatus = orderStatus;
         this.orderUser = orderUser;
     }
 
@@ -67,14 +63,6 @@ public class Order {
         this.total = total;
     }
 
-    public OrderStatus getOrderStatus() {
-        return ordersStatus;
-    }
-
-    public void setOrderStatus(OrderStatus ordersStatus) {
-        this.ordersStatus = ordersStatus;
-    }
-
     public User getOrderUser() {
         return orderUser;
     }
@@ -82,6 +70,23 @@ public class Order {
     public void setOrderUser(User orderUser) {
         this.orderUser = orderUser;
     }
+
+    public LocalDateTime getDated() {
+        return dated;
+    }
+
+    public void setDated(LocalDateTime dated) {
+        this.dated = dated;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+    
     
     
     

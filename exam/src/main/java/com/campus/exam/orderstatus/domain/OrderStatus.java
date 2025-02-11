@@ -16,9 +16,7 @@ public class OrderStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    
-    @OneToMany(mappedBy = "ordersStatus", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> orders;
+   
     
     
 
@@ -30,16 +28,6 @@ public class OrderStatus {
         this.name = name;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
-    
-    
     public Long getId() {
         return id;
     }

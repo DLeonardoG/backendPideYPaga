@@ -60,7 +60,7 @@ public Optional<OrderDTO> findById(Long id) {
         orderDTO.setId(order.getId());
         orderDTO.setDate(order.getDate());
         orderDTO.setIdUser(order.getOrderUser().getId());
-        orderDTO.setOrderStatus(order.getOrderStatus().getName());
+        orderDTO.setOrderStatus(order.getOrderStatus());
         orderDTO.setTotal(order.getTotal());
 
         return orderDTO;
@@ -71,12 +71,11 @@ public Optional<OrderDTO> findById(Long id) {
         
         User user = userRepository.findById(orderDTO.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User no encontrada para id: "));
-        OrderStatus orderStatus = orderStatusRepository.findByName(orderDTO.getOrderStatus());
 
         Order order = new Order();
         order.setId(orderDTO.getId());
         order.setDate(orderDTO.getDate());
-        order.setOrderStatus(orderStatus);
+        order.setOrderStatus(orderDTO.getOrderStatus());
         order.setOrderUser(user);
         order.setTotal(orderDTO.getTotal());
         return order;
