@@ -18,6 +18,8 @@ public class OrderDTO {
     private int total;
     private String orderStatus;
     private Long idUser;
+    
+    
 
     public OrderDTO(Long id, LocalDateTime date, int total, String orderStatus, Long idUser) {
         this.id = id;

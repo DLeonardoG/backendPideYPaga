@@ -22,6 +22,8 @@ public class User {
     private String password;
     private boolean admin;
     
+
+    
     
     @OneToMany(mappedBy = "userO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;

@@ -5,15 +5,20 @@
 package com.campus.exam.order.domain;
 
 import com.campus.exam.orderstatus.domain.OrderStatus;
+import com.campus.exam.product.domain.Product;
 import com.campus.exam.user.domain.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "ordenes")
@@ -29,6 +34,9 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private User userO;
+    
+          @OneToMany(mappedBy = "orderP", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> products;
 
     public Order(Long id, LocalDateTime dated, int total, String orderStatus, User userO) {
         this.id = id;
